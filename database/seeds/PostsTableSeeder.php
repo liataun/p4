@@ -19,5 +19,5 @@ class PostsTableSeeder extends Seeder
         $post->content = 'Hello world!\nJoin us in becoming our best selves.';
 
         $post->save();
-    }
+    }s
 }

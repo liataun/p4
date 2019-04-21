@@ -39,10 +39,10 @@ welcome () {
             info "Enter a commit message: "
             read -${BASH_VERSION+e}r msg
             line
+            php artisan migrate:fresh
             git add --all
             git commit -m "$msg"
             git push
-            php artisan migrate:fresh --seed
             line
             ssh -t $usernameServer "$docRoot/bash/deploy.sh"
             ;;
@@ -71,6 +71,8 @@ deploy () {
     line
     info "composer install --no-dev ------------"
     composer install --no-dev
+    info "php artisan migrate ------------"
+    php artisan migrate
     line
 }
 
