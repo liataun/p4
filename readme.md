@@ -25,7 +25,10 @@
 + There's a one-to-many relationship between `movies` and `users`
 
 ## Outside resources
-
+* [Responsive meta tag](https://getbootstrap.com/docs/4.3/getting-started/introduction/)
+* [Bootstrap navigation](https://getbootstrap.com/docs/4.3/components/navbar/)
+* [Bootstrap alerts](https://getbootstrap.com/docs/4.3/components/alerts/)
+* [Stack Overflow - Eloquent Model Class](https://stackoverflow.com/questions/28350232/laravel-model-class-not-found)
 
 ## Code style divergences
 

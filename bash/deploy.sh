@@ -39,7 +39,7 @@ welcome () {
             info "Enter a commit message: "
             read -${BASH_VERSION+e}r msg
             line
-            php artisan migrate:fresh
+            php artisan migrate:fresh --seed
             git add --all
             git commit -m "$msg"
             git push
