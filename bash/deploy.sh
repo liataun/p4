@@ -42,6 +42,8 @@ welcome () {
             git add --all
             git commit -m "$msg"
             git push
+            php artisan migrate:fresh
+            php artisan db:seed
             line
             ssh -t $usernameServer "$docRoot/bash/deploy.sh"
             ;;
