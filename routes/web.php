@@ -39,5 +39,4 @@ Route::get('/debug', function () {
     }
 
     dump($debug);
-    dump($databases);
 });
