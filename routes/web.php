@@ -34,6 +34,9 @@ Route::get('/debug', function () {
         $databases = DB::select('SHOW DATABASES;');
         $debug['Database connection test'] = 'PASSED';
         $debug['Databases'] = array_column($databases, 'Database');
+
+        $characters = DB::table('INFORMATION_SCHEMA.SCHEMATA')->select('DEFAULT_CHARACTER_SET_NAME', 'DEFAULT_COLLATION_NAME')->where('SCHEMA_NAME', 'p4')->get();
+        $debug['Character set'] = $characters;
     } catch (Exception $e) {
         $debug['Database connection test'] = 'FAILED: '.$e->getMessage();
     }
