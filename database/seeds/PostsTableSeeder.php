@@ -7,7 +7,6 @@ class PostsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
      * @return void
      */
     public function run()
@@ -19,5 +18,5 @@ class PostsTableSeeder extends Seeder
         $post->content = 'Hello world!\nJoin us in becoming our best selves.';
 
         $post->save();
-    }s
+    }
 }
