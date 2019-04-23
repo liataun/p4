@@ -1,6 +1,18 @@
 <?php
 
 return [
+    /**
+     * navigation helper design by Susan Buck
+     */
+    'nav' => [
+        //URL => label
+        //'/' => 'Home',
+        'posts' => 'Posts',
+        'debug' => 'DB Test',
+        'user' => 'User',
+        'admin' => 'Admin',
+        'nihao' => 'Ni Hao',
+    ],
 
     /*
     |--------------------------------------------------------------------------
