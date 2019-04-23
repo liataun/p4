@@ -20,22 +20,20 @@
         <a class='navbar-brand' href='/'><img src='/images/logo.png' class='img' id='logo' alt='ToDO Replace Me'></a>
         <li class='navbar-text'>Welcome</li>
         @foreach(config('app.nav') as $link => $label)
-            <ul class='navbar-nav'>
-                @if(Request::is($link))
-                    {{-- If currrent path matches, do no link --}}
-                    @if(!in_array($label, ['DB Test']) or config('app.debug'))
+            @if(!in_array($label, ['DB Test']) or config('app.debug'))
+                <ul class='navbar-nav'>
+                    @if(Request::is($link))
+                        {{-- If currrent path matches, do no link --}}
                         <li class='nav-item active'>{{$label}}</li>
-                    @endif
-                @elseif($label == 'Ni Hao')
-                    <li class='nav-item'><a class='nav-link disabled' href='/{{$link}}'>{{ $label }}</a></li>
-                @elseif($label == 'DB Test')
-                    @if(config('app.debug'))
+                    @elseif($label == 'Ni Hao')
+                        <li class='nav-item'><a class='nav-link disabled' href='/{{$link}}'>{{ $label }}</a></li>
+                    @elseif($label == 'DB Test')
+                        <li class='nav-item'><a class='nav-link' href='/{{$link}}'>{{ $label }}</a></li>
+                    @else
                         <li class='nav-item'><a class='nav-link' href='/{{$link}}'>{{ $label }}</a></li>
                     @endif
-                @else
-                    <li class='nav-item'><a class='nav-link' href='/{{$link}}'>{{ $label }}</a></li>
-                @endif
-            </ul>
+                </ul>
+            @endif
         @endforeach
     </nav>
 </header>
