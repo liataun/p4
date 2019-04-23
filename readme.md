@@ -34,4 +34,4 @@
 
 
 ## Notes for instructor
-
+* Using your Nav item listing-from-config-array logic.

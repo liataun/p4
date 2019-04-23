@@ -13,7 +13,7 @@
 
 Route::get('/', 'PostController@index');
 
-Route::view('/user', 'user');
+Route::view('/users/user', 'users.user');
 
 Route::get('/posts', 'PostController@list');
 

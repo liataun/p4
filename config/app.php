@@ -8,7 +8,7 @@ return [
         //URL => label
         'posts' => 'Posts',
         'debug' => 'DB Test',
-        'user' => 'User',
+        'users/user' => 'User',
         'admin' => 'Admin',
         'nihao' => 'Ni Hao',
     ],
