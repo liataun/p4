@@ -6,7 +6,6 @@ return [
      */
     'nav' => [
         //URL => label
-        //'/' => 'Home',
         'posts' => 'Posts',
         'debug' => 'DB Test',
         'user' => 'User',

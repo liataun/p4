@@ -23,11 +23,14 @@
             <ul class='navbar-nav'>
                 @if(Request::is($link))
                     {{-- If currrent path matches, do no link --}}
-                    <li class='nav-item active'>{{$label}}</li>
-                    {{--                @elseif($label == 'Home')--}}
+                    @if(!in_array($label, ['DB Test']) or config('app.debug'))
+                        <li class='nav-item active'>{{$label}}</li>
+                    @endif
                 @elseif($label == 'Ni Hao')
+                    <li class='nav-item'><a class='nav-link disabled' href='/{{$link}}'>{{ $label }}</a></li>
+                @elseif($label == 'DB Test')
                     @if(config('app.debug'))
-                        <li class='nav-item'><a class='nav-link disabled' href='/{{$link}}'>{{ $label }}</a></li>
+                        <li class='nav-item'><a class='nav-link' href='/{{$link}}'>{{ $label }}</a></li>
                     @endif
                 @else
                     <li class='nav-item'><a class='nav-link' href='/{{$link}}'>{{ $label }}</a></li>
