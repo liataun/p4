@@ -10,7 +10,7 @@
     </p>
     <h4 class='text-secondary'>Some header</h4>
 
-    <form class='text-dark' method='get' action='/pages/posts/do/thing'>
+    <form class='text-dark' method='post' action='/pages/posts/do/thing'>
         <div class='form-group'>
             <label for='title'>Enter title for post</label>
             <input type='text' class='form-control' id='title' name='title'
