@@ -31,4 +31,25 @@ class PostController extends Controller
 
         return view('posts.list')->with(['posts' => $posts,]);
     }
+
+    public function insert($id)
+    {
+        //ToDO Build form
+        Log::info('Page stub -PostController.insert- was accessed on: ' . date('Ymd'));
+        dump('ToDo insert' . $id);
+    }
+
+    public function update($id)
+    {
+        //ToDO Build form
+        Log::info('Page stub -PostController.update- was accessed on: ' . date('Ymd'));
+        dump('ToDo update' . $id);
+    }
+
+    public function delete($id)
+    {
+        //ToDO Build form
+        Log::info('Page stub -PostController.delete- was accessed on: ' . date('Ymd'));
+        dump('ToDo delete' . $id);
+    }
 }

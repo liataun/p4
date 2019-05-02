@@ -15,6 +15,12 @@ Route::get('/', 'PostController@index');
 
 Route::get('/posts', 'PostController@list');
 
+Route::get('/posts/insert/{id}', 'PostController@insert');
+
+Route::get('/posts/update/{id}', 'PostController@update');
+
+Route::get('/posts/delete/{id}', 'PostController@delete');
+
 Route::view('/users/user', 'users.user');
 
 Route::get('/debug', 'DebugController@debug');
