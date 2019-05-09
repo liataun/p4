@@ -23,11 +23,8 @@ class PostController extends Controller
         $posts = Post::all();
 
         foreach (explode('\\n', $posts[1]->content) as $part) {
-            dump('Parts ' . $part);
+            dump($part);
         }
-
-        dump('With e: ' . nl2br(e($posts[0]->content)));
-        dump('Without e: ' . nl2br($posts[0]->content));
 
         return view('posts.list')->with(['posts' => $posts,]);
     }

@@ -33,6 +33,7 @@
 * [Stack Overflow - blade and newlines](https://stackoverflow.com/questions/26667116/how-to-keep-the-line-breaks-from-user-input-but-also-sanitize-in-blade) Seems like it should work, but didn't.
 * Or more advanced version, [Stack Overflow - nl2br Laravel 5](https://stackoverflow.com/questions/28569955/how-do-i-use-nl2br-in-laravel-5-blade)
 * So instead went with using [Explode](https://www.php.net/manual/en/function.explode.php).
+* [Fontawesome](https://fontawesome.com/start)
 
 ## Code style divergences
 

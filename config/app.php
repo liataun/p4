@@ -8,9 +8,8 @@ return [
         //URL => label
         'posts' => 'Posts',
         'debug' => 'DB Test',
-        'users/user' => 'User',
-        'admin' => 'Admin',
         'nihao' => 'Ni Hao',
+        'users/user' => 'User',
     ],
 
     /*
@@ -185,6 +184,12 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
+        /*
+        * Custom Service Providers...
+        * to make user data available to views
+        */
+        App\Providers\ViewServiceProvider::class,
 
     ],
 
