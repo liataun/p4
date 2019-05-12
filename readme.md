@@ -36,6 +36,7 @@
 * So instead went with using [Explode](https://www.php.net/manual/en/function.explode.php)
 * [Stack Overflow - Eloquent Model Class](https://stackoverflow.com/questions/28350232/laravel-model-class-not-found)
 * [Stack Overflow - Error Field w/o Default Value](https://stackoverflow.com/questions/41750167/error-field-doesnt-have-a-default-value-in-laravel-5-3/41750212)
+* [Stack Overflow - Seeding Many-to-Many](https://stackoverflow.com/questions/45269146/laravel-seeding-many-to-many-relationship)
 
 ## Code style divergences
 

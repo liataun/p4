@@ -20,7 +20,7 @@ class PostController extends Controller
     {
         //ToDO Pull posts info from database
         Log::info('Page stub -PostController.list- was accessed on: ' . date('Ymd'));
-        $posts = Post::all();
+        $posts = Post::where('publish', '=', true)->get();
 
         foreach (explode('\\n', $posts[1]->content) as $part) {
             dump($part);

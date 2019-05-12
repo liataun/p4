@@ -18,6 +18,8 @@ class CreatePostsTable extends Migration
 
             $table->string('title');
             $table->text('content');
+            $table->string('position')->default('top-center');
+            $table->boolean('publish')->default(false);
         });
     }
 
