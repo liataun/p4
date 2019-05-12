@@ -8,7 +8,6 @@ class CreateEmotionsTable extends Migration
 {
     /**
      * Run the migrations.
-     *
      * @return void
      */
     public function up()
@@ -16,12 +15,13 @@ class CreateEmotionsTable extends Migration
         Schema::create('emotions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
+
+            $table->string('name');
         });
     }
 
     /**
      * Reverse the migrations.
-     *
      * @return void
      */
     public function down()

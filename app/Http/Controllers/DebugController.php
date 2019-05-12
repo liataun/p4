@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Exception;
 use App;
+use App\Artwork;
+use App\Emotion;
+use App\Post;
+use App\Tag;
+use App\User;
 
 class DebugController extends Controller
 {
@@ -36,6 +41,22 @@ class DebugController extends Controller
             $debug['Character set'] = $characters;
         } catch (Exception $e) {
             $debug['Database connection test'] = 'FAILED: ' . $e->getMessage();
+        }
+
+
+        $posts = Post::All();
+
+        foreach ($posts as $post)
+        {
+            //get random emotion
+            $count = Emotion::get()->count();
+            $emotion = Emotion::find(rand(1, $count));
+
+            //$post->emotions()->save($emotion);
+
+            dd([
+                $count, $emotion, gettype($emotion), gettype($post)
+            ]);
         }
 
         return view('debug')->with(['debug' => $debug]);

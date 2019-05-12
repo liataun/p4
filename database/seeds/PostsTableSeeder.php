@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Post;
+use App\Artwork;
 
 class PostsTableSeeder extends Seeder
 {
@@ -11,18 +12,16 @@ class PostsTableSeeder extends Seeder
      */
     public function run()
     {
-        $post2 = new Post();
-
-        $post2->title = 'First post!';
-        $post2->content = '<span></span>1\n2\r3\n\r4\\n5\\r6\\n\\r7/n8/r9/n/r0//n11//r12//n//r13';
-
-        $post2->save();
-
         $post1 = new Post();
-
         $post1->title = 'First post!';
-        $post1->content = 'Hello world! Join us\\nin becoming our best selves.';
-
+        $post1->content = 'Welcome to the site! I am happy to have you reading and viewing my work.';
+        $post1->artwork_id = Artwork::where('label', 'LIKE', 'APA-Logo')->pluck('id')->first();
         $post1->save();
+
+        $post2 = new Post();
+        $post2->title = 'Second post!';
+        $post2->content = 'Hello world! Join us\\nin becoming our best selves.';
+        $post2->artwork()->associate(Artwork::where('label', 'LIKE', 'APA-Logo')->first());
+        $post2->save();
     }
 }

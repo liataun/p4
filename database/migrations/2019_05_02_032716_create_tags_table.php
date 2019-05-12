@@ -8,7 +8,6 @@ class CreateTagsTable extends Migration
 {
     /**
      * Run the migrations.
-     *
      * @return void
      */
     public function up()
@@ -16,12 +15,13 @@ class CreateTagsTable extends Migration
         Schema::create('tags', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
+
+            $table->string('name', 100);
         });
     }
 
     /**
      * Reverse the migrations.
-     *
      * @return void
      */
     public function down()
