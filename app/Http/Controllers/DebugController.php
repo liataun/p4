@@ -43,22 +43,6 @@ class DebugController extends Controller
             $debug['Database connection test'] = 'FAILED: ' . $e->getMessage();
         }
 
-
-        $posts = Post::All();
-
-        foreach ($posts as $post)
-        {
-            //get random emotion
-            $count = Emotion::get()->count();
-            $emotion = Emotion::find(rand(1, $count));
-
-            //$post->emotions()->save($emotion);
-
-            dd([
-                $count, $emotion, gettype($emotion), gettype($post)
-            ]);
-        }
-
         return view('debug')->with(['debug' => $debug]);
     }
 }
