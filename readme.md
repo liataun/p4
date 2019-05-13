@@ -49,3 +49,4 @@ My application has 5 tables in total (`users`, `posts`, `artworks`, `tags`, `emo
 * Struggled a lot with the table relationship design and had to switch to working on paper for a bit to help break it into pieces.
 * I made my own images. (In illustrator, exported to png.)
 * Newline characters drove me to some extreme choices with seeding and parsing posts' content field. I will try to clean up as much of it as I can, but I've lost track of all the things I have changed to try to consistently parse captured newlines.
+* I find that sometimes the alert variable is being interpreted as _set_ per the master view section, but no content is showing except a small strip of background color. Tried to troubleshoot.

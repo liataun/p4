@@ -20,6 +20,9 @@ class PostController extends Controller
 
     public function list(Request $request)
     {
+        $alert = $request->session()->get('alert');
+        $request->session()->flush();
+    
         Log::info('Page -PostController.list- was accessed on: ' . date('Ymd'));
         $posts = Post::where('publish', '=', true)->get();
 
@@ -32,7 +35,7 @@ class PostController extends Controller
         return view('posts.list')->with([
             'posts' => $posts,
             'text' => $collection,
-            'alert' => $request->session()->get('alert') ?? '',
+            'alert' => $alert ?? '',
         ]);
     }
 
