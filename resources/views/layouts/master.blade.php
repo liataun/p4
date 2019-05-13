@@ -19,8 +19,8 @@
 </head>
 <body class='p-5'>
 
-@if(isset($alert))
-    <div class='alert-general'>{{ $alert }}</div>
+@if(session('alert'))
+    <div class='alert-general'>{{ session('alert') }}</div>
 @endif
 
 <header>

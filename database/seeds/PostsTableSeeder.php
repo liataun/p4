@@ -22,7 +22,7 @@ class PostsTableSeeder extends Seeder
 
         $post2 = new Post();
         $post2->title = 'Second post!';
-        $post2->content = 'Hello world! Join us\\nin becoming our best selves.';
+        $post2->content = "Hello world! Join us\nin becoming our best selves.";
         $post2->artwork()->associate(Artwork::where('label', 'LIKE', 'APA-Logo')->first());
         $post2->position = 'top-right';
         $post2->publish = true;

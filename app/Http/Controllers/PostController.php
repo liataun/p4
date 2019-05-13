@@ -15,7 +15,7 @@ class PostController extends Controller
     {
         Log::info('Page -PostController.index- was accessed on: ' . date('Ymd'));
 
-        $request->session()->forget('alert');
+        //$request->session()->forget('alert');
 
         return view('welcome');
     }
@@ -33,7 +33,7 @@ class PostController extends Controller
         return view('posts.list')->with([
             'posts' => $posts,
             'text' => $collection,
-            'alert' => $request->session()->get('alert'),
+            //'alert' => $request->session()->get('alert'),
         ]);
     }
 
