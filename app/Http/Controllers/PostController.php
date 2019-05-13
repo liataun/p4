@@ -11,31 +11,29 @@ use App\Artwork;
 
 class PostController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         Log::info('Page -PostController.index- was accessed on: ' . date('Ymd'));
+
+        $request->session()->forget('alert');
 
         return view('welcome');
     }
 
     public function list(Request $request)
     {
-        $alert = $request->session()->get('alert');
-        $request->session()->flush();
-    
         Log::info('Page -PostController.list- was accessed on: ' . date('Ymd'));
         $posts = Post::where('publish', '=', true)->get();
 
         $collection = collect([]);
         foreach ($posts as $post) {
             $collection->put($post->id, explode('\n', $post['content']));
-            //dump('with dump=> '.$post['content']);
         }
 
         return view('posts.list')->with([
             'posts' => $posts,
             'text' => $collection,
-            'alert' => $alert ?? '',
+            'alert' => $request->session()->get('alert'),
         ]);
     }
 
@@ -69,7 +67,7 @@ class PostController extends Controller
         $post1->save();
 
         return redirect('posts')->with([
-            'alert' => 'You post has been added!',
+            'alert' => 'Your post has been added!',
         ]);
     }
 
@@ -105,7 +103,7 @@ class PostController extends Controller
         $post1->save();
 
         return redirect('posts')->with([
-            'alert' => 'Post ID: '.$id.' has been updated!',
+            'alert' => 'Post ID: ' . $id . ' has been updated!',
         ]);
     }
 
@@ -117,7 +115,7 @@ class PostController extends Controller
 
         return view('posts.delete')->with([
             'post' => $post,
-            'alert' => $request->session()->get('alert') ?? 'Deletion is not reversable!',
+            'alert' => 'Deletion is not reversable!',
         ]);
     }
 
@@ -132,7 +130,7 @@ class PostController extends Controller
 
         return redirect('/posts/')->with([
             'id' => $id,
-            'alert' => $request->session()->get('alert') ?? 'Post '.$post->title.' was Deleted.',
+            'alert' => 'Post ' . $post->title . ' was Deleted.',
         ]);
     }
 }
