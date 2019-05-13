@@ -1,7 +1,10 @@
 @extends('layouts.master')
 
-@section('content')
+@section('title')
+    User Login
+@endsection
 
+@section('content')
     <h1>Login</h1>
 
     Don't have an account? <a href='/register'>Register here...</a>
@@ -27,5 +30,4 @@
         <a class='btn btn-link' href='{{ route('password.request') }}'>Forgot Your Password?</a>
 
     </form>
-
 @endsection

@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+    User Registration
+@endsection
+
 @section('content')
     <h1>Register</h1>
 
