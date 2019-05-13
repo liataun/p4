@@ -26,7 +26,7 @@
 <header>
     <nav class='navbar'>
         <a class='navbar-brand' href='/'><img src='/images/logo.png' class='img' id='logo' alt='ToDO Replace Me'></a>
-        <li class='navbar-text'>Welcome</li>
+        <div class='navbar-text'>Welcome</div>
         @foreach(config('app.nav') as $link => $label)
             @if(!in_array($label, ['DB Test']) or config('app.debug'))
                 <ul class='navbar-nav'>

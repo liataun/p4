@@ -11,6 +11,7 @@
 * The home page features
   * a reminder of the date
   * a list of planned site improvements
+  * or a link to login for Guests
   
 ## Database summary
 My application has 5 tables in total (`users`, `posts`, `artworks`, `tags`, `emotions`), plus required pivot tables.
