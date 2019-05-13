@@ -26,9 +26,8 @@
             </div>
         @else
             <div class="row">
-                <p class='text-info'>You can only view posts until you login. Go to the
+                <p class='text-info'>You <em>cannot</em> view posts until you login. Go to the
                     <a href='/users/user'>User</a> page to login.</p>
-                <p class='text-info'>ToDo List out posts.</p>
             </div>
         @endif
     </div>
