@@ -13,6 +13,7 @@
         <ul lass='list-group'>
             @foreach($posts as $post)
                 <li class='list-group-item'>
+                    <h3>{{ $post->title }}</h3>
                     <pre>{{ $post->id }}</pre>
                     <a href='{{ $post->artwork->path }}'>{{ $post->artwork->label }}</a>
                     <pre>{{ 'With pre element=> '.$post->content }}</pre>

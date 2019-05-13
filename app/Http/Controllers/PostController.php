@@ -24,7 +24,7 @@ class PostController extends Controller
         $posts = Post::where('publish', '=', true)->get();
 
         $collection = collect([]);
-        foreach($posts as $post) {
+        foreach ($posts as $post) {
             $collection->put($post->id, explode('\n', $post['content']));
             //dump('with dump=> '.$post['content']);
         }
@@ -72,16 +72,38 @@ class PostController extends Controller
 
     public function updateShow($id)
     {
-        //ToDO Build form
-        Log::info('Page stub -PostController.updateShow- was accessed on: ' . date('Ymd'));
-        dump('ToDo updateShow' . $id);
+        Log::info('Page -PostController.updateShow- was accessed on: ' . date('Ymd'));
+
+        $images = Artwork::select('id', 'label')->orderBy('label', 'asc')->get();
+        $post = Post::find($id);
+
+        return view('posts.update')->with([
+            'art' => $images,
+            'post' => $post,
+        ]);
     }
 
     public function update(Request $request, $id)
     {
-        //ToDO Build form
-        Log::info('Page stub -PostController.update- was accessed on: ' . date('Ymd'));
-        dump('ToDo update' . $id);
+        Log::info('Page -PostController.update- was accessed on: ' . date('Ymd'));
+
+        $this->validate($request, [
+            'title' => 'required',
+            'content' => 'required',
+            'artwork' => 'required|exists:artworks,id',
+        ]);
+
+        $post1 = Post::find($id);
+        $post1->title = $request->get('title');
+        $post1->content = $request->get('content');
+        $post1->artwork_id = $request->get('artwork');
+        //$post1->position = 'top-left';
+        //$post1->publish = true;
+        $post1->save();
+
+        return redirect('posts')->with([
+            'alert' => 'Post ID: '.$id.' has been updated!',
+        ]);
     }
 
     public function deleteShow($id)
