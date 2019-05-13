@@ -13,14 +13,14 @@ class ArtworksTableSeeder extends Seeder
     {
         $artwork1 = new Artwork();
         $artwork1->label = 'APA-Logo';
-        $artwork1->path = '/Images/Artwork/APA-Logo.png';
+        $artwork1->path = '/images/artwork/apa-logo.png';
         $artwork1->alt_text = 'A logo for an APA Citation website';
         $artwork1->link = 'http://p3.twitchell.me/';
         $artwork1->save();
 
         $artwork2 = new Artwork();
         $artwork2->label = 'Poem-Logo';
-        $artwork2->path = '/Images/Artwork/Poem-Logo.png';
+        $artwork2->path = '/images/artwork/poem-logo.png';
         $artwork2->alt_text = 'A logo for a Poem and Drawing website';
         $artwork2->link = 'http://p4.twitchell.me/';
         $artwork2->save();
