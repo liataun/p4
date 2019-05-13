@@ -106,24 +106,30 @@ class PostController extends Controller
         ]);
     }
 
-    public function deleteShow($id)
+    public function deleteShow(Request $request, $id)
     {
-        //ToDO Build form
-        Log::info('Page stub -PostController.deleteShow- was accessed on: ' . date('Ymd'));
-        dump('ToDo deleteShow' . $id);
-    }
+        Log::info('Page -PostController.deleteShow- was accessed on: ' . date('Ymd'));
 
-    public function deleteConfirm(Request $request, $id)
-    {
-        //ToDO Build form
-        Log::info('Page stub -PostController.deleteConfirm- was accessed on: ' . date('Ymd'));
-        dump('ToDo deleteConfirm' . $id);
+        $post = Post::find($id);
+
+        return view('posts.delete')->with([
+            'post' => $post,
+            'alert' => $request->session()->get('alert') ?? 'Deletion is not reversable!',
+        ]);
     }
 
     public function delete(Request $request, $id)
     {
-        //ToDO Build form
-        Log::info('Page stub -PostController.delete- was accessed on: ' . date('Ymd'));
+        Log::info('Page -PostController.delete- was accessed on: ' . date('Ymd'));
         dump('ToDo delete' . $id);
+
+        $post = Post::find($id);
+        $post->emotions()->detach();
+        $post->delete();
+
+        return redirect('/posts/')->with([
+            'id' => $id,
+            'alert' => $request->session()->get('alert') ?? 'Post '.$post->title.' was Deleted.',
+        ]);
     }
 }

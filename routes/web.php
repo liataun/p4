@@ -14,8 +14,6 @@
 Route::any('/', 'PostController@index');
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/posts', 'PostController@list');
-
     Route::get('/posts/insert/form', 'PostController@insertShow');
 
     Route::post('/posts/insert', 'PostController@insert');
@@ -26,9 +24,9 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/posts/delete/form/{id}', 'PostController@deleteShow');
 
-    Route::get('/posts/delete/confirm/{id}', 'PostController@deleteConfirm');
-
     Route::delete('/posts/delete/{id}', 'PostController@delete');
+
+    Route::get('/posts/{id?}', 'PostController@list');
 
     Route::get('/debug', 'DebugController@debug');
 });

@@ -3,25 +3,22 @@
 + Production URL: <http://p4.twitchell.me>
 
 ## Feature summary
-*Outline a summary of features that your application has. The following details are from a hypothetical project called "Movie Tracker". Note that it is similar to Foobooks, yet it has its own unique features. Delete this example and replace with your own feature summary*
-
-+ Visitors can register/log in
-+ Users can add/update/delete movies in their collection (title, release date, director, writer, summary, category)
-+ There's a file uploader that's used to upload post images for each movie
-+ User's can toggle whether movies in their collection are public or private
-+ Each user has a public profile page which presents a short bio about their movie tastes, as well as a list of public movies in their collection. 
-+ Each user has their own account page where they can edit their bio, email, password
-+ Users can clone movies from another user's public collection into their collection
-+ The home page features
-  + a stream of recently added public movies
-  + a list of categories, with a link to each category that shows a page of movies (with links) within that category
+* Visitors can register/log in
+* Users can view/insert/update/delete posts, all posts are visible to all other logged in users
+* Users can select the image from those in the database to associate with each post
+* Image with each post includes a link to the image created based on a database field for the available images
+* Each user has their own account page where they can logout
+* The home page features
+  * a reminder of the date
+  * a list of planned site improvements
   
 ## Database summary
 My application has 5 tables in total (`users`, `posts`, `artworks`, `tags`, `emotions`), plus required pivot tables.
-+ There's a one-to-many relationship between `artworks` and `posts`
-+ There's a many-to-many relationship between `artworks` and `tags`
-+ There's a many-to-many relationship between `emotions` and `posts`
-+ There's a one-to-many relationship between `users` and `emotions`
+* There's a one-to-many relationship between `artworks` and `posts`
+* There's a many-to-many relationship between `artworks` and `tags`
+* There's a many-to-many relationship between `emotions` and `posts`
+* There's a one-to-many relationship between `users` and `emotions`
+  * Only the `artworks` and `posts` relationship is currently visible to the user
 
 ## Outside resources
 * _Appologies for always having so many links._ I always forget syntax.
@@ -42,6 +39,9 @@ My application has 5 tables in total (`users`, `posts`, `artworks`, `tags`, `emo
 * [Stack Overflow - Error Field w/o Default Value](https://stackoverflow.com/questions/41750167/error-field-doesnt-have-a-default-value-in-laravel-5-3/41750212)
 * [Stack Overflow - Seeding Many-to-Many](https://stackoverflow.com/questions/45269146/laravel-seeding-many-to-many-relationship)
 * [Stack Overflow - User info on home page](https://stackoverflow.com/questions/28650067/laravel-5-display-username-on-homepage)
+
+## Code style divergences
+* Some variation in alignment of elements from page to page. I was preparing for doing some positional selection based on user input, but spent the time troubleshooting string manipulation/display issues.
 
 ## Notes for instructor
 * Using your Nav item listing-from-config-array logic.

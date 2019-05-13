@@ -30,16 +30,18 @@
         @foreach(config('app.nav') as $link => $label)
             @if(!in_array($label, ['DB Test']) or config('app.debug'))
                 <ul class='navbar-nav'>
-                    @if(Request::is($link))
+                    @if(Request::is($link) and $label != 'User')
                         {{-- If currrent path matches, do no link --}}
                         <li class='nav-item active'>{{$label}}</li>
-                    @elseif($label == 'Ni Hao' and Auth::check())
-                        <li class='nav-item'><a class='nav-link disabled' href='/{{$link}}'>{{ $label }}</a></li>
-                    @elseif($label == 'DB Test' and Auth::check())
-                        <li class='nav-item'><a class='nav-link' href='/{{$link}}'>{{ $label }}</a></li>
+                    @elseif(Request::is($link) and $label == 'User' and Auth::check())
+                        <li class='nav-item active'>{{ $user->name }}</li>
                     @elseif($label == 'User' and Auth::check())
                         <li class='nav-item'><a class='nav-link' href='/{{$link}}'>{{ $user->name }}</a></li>
                     @elseif($label == 'User' and !Auth::check())
+                        <li class='nav-item'><a class='nav-link' href='/{{$link}}'>{{ $label }}</a></li>
+                    @elseif($label == 'Ni Hao' and Auth::check())
+                        <li class='nav-item'><a class='nav-link disabled' href='/{{$link}}'>{{ $label }}</a></li>
+                    @elseif($label == 'DB Test' and Auth::check())
                         <li class='nav-item'><a class='nav-link' href='/{{$link}}'>{{ $label }}</a></li>
                     @elseif(Auth::check())
                         <li class='nav-item'><a class='nav-link' href='/{{$link}}'>{{ $label }}</a></li>
