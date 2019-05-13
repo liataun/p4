@@ -7,20 +7,38 @@
 @section('content')
     <h4 class='text-secondary'>Share Your Poetry or Prose</h4>
 
-    <p class='text-info'>{{'message'}}</p>
+    <form class='text-dark' method='post' action='/posts/insert'>
+        @csrf
 
-    <form class='text-dark' method='post' action='/pages/posts/do/thing'>
         <div class='form-group'>
-            <label for='title'>Enter title for post</label>
+            <label for='title'>* Enter title for post</label>
             <input type='text' class='form-control' id='title' name='title'
-                   value='{{old('title') ?? 'A Day in the Life'}}'>
-            @if($errors->get('title'))
-                <div class='alert alert-danger'>{{ $errors->first('title') }}</div>
-            @endif
+                   value='{{old('title')}}' placeholder='A Day in the Life'>
+            @include('includes.error-field', ['fieldName' => 'title'])
         </div>
-        <input type='submit' class='mb-3 btn btn-primary' name='post' value='Save Post'>
+
+        <div class='form-group'>
+            <label for='content'>* Type your poem or prose here</label>
+            <textarea class='form-control'
+                      id='content'
+                      name='content'
+                      rows='10'
+                      placeholder='My day started with rain and washed away from there...'>{{old('content')}}</textarea>
+            @include('includes.error-field', ['fieldName' => 'content'])
+        </div>
+
+        <div class='form-group'>
+            <label for='artwork'>* Select Artwork Image to go with your post (preview not available)</label>
+            <select class='form-control' name='artwork' name='artwork'>
+                <option value=''>Choose one...</option>
+                @foreach($art as $artwork)
+                    <option value='{{ $artwork->id }}'
+                    {{ (old('artwork') == $artwork->id) ? 'selected' : '' }}>{{ $artwork->label }}</option>
+                @endforeach
+            </select>
+            @include('includes.error-field', ['fieldName' => 'artwork'])
+        </div>
+
+        <input type='submit' class='mb-3 btn btn-primary' name='post' value='Create Post'>
     </form>
-    @if(count($errors) > 0)
-        <div class='alert alert-danger'>{{ 'Error count: '.count($errors).'. Details are displayed next to input field(s).' }}</div>
-    @endif
 @endsection

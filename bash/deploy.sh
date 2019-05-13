@@ -71,7 +71,7 @@ deploy () {
     line
     info "composer install --no-dev ------------"
     composer install --no-dev
-    info "php artisan migrate ------------"
+    info "php artisan migrate:fresh --seed ------------"
     php artisan migrate:fresh --seed
     line
 }

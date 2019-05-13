@@ -19,6 +19,10 @@
 </head>
 <body class='p-5'>
 
+@if(isset($alert))
+    <div class='alert-general'>{{ $alert }}</div>
+@endif
+
 <header>
     <nav class='navbar'>
         <a class='navbar-brand' href='/'><img src='/images/logo.png' class='img' id='logo' alt='ToDO Replace Me'></a>
@@ -43,7 +47,6 @@
                 </ul>
             @endif
         @endforeach
-
     </nav>
 </header>
 

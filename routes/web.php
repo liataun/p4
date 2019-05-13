@@ -11,24 +11,24 @@
 |
 */
 
-Route::get('/', 'PostController@index');
+Route::any('/', 'PostController@index');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/posts', 'PostController@list');
 
     Route::get('/posts/insert/form', 'PostController@insertShow');
 
-    Route::get('/posts/insert/', 'PostController@insert');
+    Route::post('/posts/insert', 'PostController@insert');
 
     Route::get('/posts/update/form/{id}', 'PostController@updateShow');
 
-    Route::get('/posts/update/{id}', 'PostController@update');
+    Route::put('/posts/update/{id}', 'PostController@update');
 
     Route::get('/posts/delete/form/{id}', 'PostController@deleteShow');
 
     Route::get('/posts/delete/confirm/{id}', 'PostController@deleteConfirm');
 
-    Route::get('/posts/delete/{id}', 'PostController@delete');
+    Route::delete('/posts/delete/{id}', 'PostController@delete');
 
     Route::get('/debug', 'DebugController@debug');
 });

@@ -13,11 +13,12 @@
         <ul lass='list-group'>
             @foreach($posts as $post)
                 <li class='list-group-item'>
-                    <pre>{!! nl2br(e($post->id)) !!}</pre>
-                    <p>{{$text}}</p>
-                    <p>{{ $post->content }}</p>
-                    @foreach($text as $item)
-                        Anything
+                    <pre>{{ $post->id }}</pre>
+                    <a href='{{ $post->artwork->path }}'>{{ $post->artwork->label }}</a>
+                    <pre>{{ 'With pre element=> '.$post->content }}</pre>
+{{--                    <p>{{ 'With p element=> '.$post->content }}</p>--}}
+                    @foreach($text[$post->id] as $item)
+                        <p>{{ 'With explode=> '.$item }}</p>
                     @endforeach
                     <a href='/posts/update/form/{{ $post->id }}'><span class="fas fa-tint"> Update post</span></a>
                     <a href='/posts/delete/form/{{ $post->id }}'><span class="fas fa-window-close"> Delete post</span></a>

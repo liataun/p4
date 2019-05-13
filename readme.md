@@ -28,13 +28,16 @@ My application has 5 tables in total (`users`, `posts`, `artworks`, `tags`, `emo
 * [Responsive meta tag](https://getbootstrap.com/docs/4.3/getting-started/introduction/)
 * [Bootstrap navigation](https://getbootstrap.com/docs/4.3/components/navbar/)
 * [Bootstrap alerts](https://getbootstrap.com/docs/4.3/components/alerts/)
+* [Bootstrap textarea](https://getbootstrap.com/docs/4.0/components/forms/)
 * [Bootstrap list groups](https://getbootstrap.com/docs/4.3/components/list-group/)
+* [Bootstrap grid layout](https://getbootstrap.com/docs/4.0/layout/grid/)
 * [Fontawesome](https://fontawesome.com/start)
 * [Googled for HTML encoded newline](http://code.cside.com/3rdpage/us/newLine.html) Didn't work
 * [Stack Overflow - blade and newlines](https://stackoverflow.com/questions/26667116/how-to-keep-the-line-breaks-from-user-input-but-also-sanitize-in-blade) Seems like it should work, but didn't
 * Or more advanced version, [Stack Overflow - nl2br Laravel 5](https://stackoverflow.com/questions/28569955/how-do-i-use-nl2br-in-laravel-5-blade)
 * So instead went with using [Explode](https://www.php.net/manual/en/function.explode.php)
 * [Unicode characters for Emoji](https://www.unicode.org/emoji/charts/full-emoji-list.html#2764)
+* [w3Schools - Placeholder text](https://www.w3schools.com/tags/att_input_placeholder.asp), was suggested by my p3 reviewer.
 * [Stack Overflow - Eloquent Model Class](https://stackoverflow.com/questions/28350232/laravel-model-class-not-found)
 * [Stack Overflow - Error Field w/o Default Value](https://stackoverflow.com/questions/41750167/error-field-doesnt-have-a-default-value-in-laravel-5-3/41750212)
 * [Stack Overflow - Seeding Many-to-Many](https://stackoverflow.com/questions/45269146/laravel-seeding-many-to-many-relationship)
@@ -44,3 +47,4 @@ My application has 5 tables in total (`users`, `posts`, `artworks`, `tags`, `emo
 * Using your Nav item listing-from-config-array logic.
 * Struggled a lot with the table relationship design and had to switch to working on paper for a bit to help break it into pieces.
 * I made my own images. (In illustrator, exported to png.)
+* Newline characters drove me to some extreme choices with seeding and parsing posts' content field. I will try to clean up as much of it as I can, but I've lost track of all the things I have changed to try to consistently parse captured newlines.

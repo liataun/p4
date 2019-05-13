@@ -4,48 +4,70 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\DB;
 use App\Post;
+use App\Artwork;
 
 class PostController extends Controller
 {
     public function index()
     {
-        //ToDO Build form
-        Log::info('Page stub -PostController.index- was accessed on: ' . date('Ymd'));
+        Log::info('Page -PostController.index- was accessed on: ' . date('Ymd'));
 
         return view('welcome');
     }
 
-    public function list()
+    public function list(Request $request)
     {
-        //ToDO Pull posts info from database
-        Log::info('Page stub -PostController.list- was accessed on: ' . date('Ymd'));
+        Log::info('Page -PostController.list- was accessed on: ' . date('Ymd'));
         $posts = Post::where('publish', '=', true)->get();
-        $splitPosts = collect([]);
 
-        foreach ($posts as $post) {
-//            dd($post['content']);
-
-            $splitPosts->push([
-                $post['id'] => explode('\\n', $post['content'])
-                ]);
+        $collection = collect([]);
+        foreach($posts as $post) {
+            $collection->put($post->id, explode('\n', $post['content']));
+            //dump('with dump=> '.$post['content']);
         }
 
-        return view('posts.list')->with(['posts' => $posts, 'text' => $splitPosts]);
+        return view('posts.list')->with([
+            'posts' => $posts,
+            'text' => $collection,
+            'alert' => $request->session()->get('alert') ?? '',
+        ]);
     }
 
     public function insertShow()
     {
-        Log::info('Page stub -PostController.insertShow- was accessed on: ' . date('Ymd'));
+        Log::info('Page -PostController.insertShow- was accessed on: ' . date('Ymd'));
 
-        return view('posts.insert')->with(['message' => 'Trying to see if it is working.',]);
+        $images = Artwork::select('id', 'label')->orderBy('label', 'asc')->get();
+
+        return view('posts.insert')->with([
+            'art' => $images,
+        ]);
     }
 
     public function insert(Request $request)
     {
-        //ToDO Build form
-        Log::info('Page stub -PostController.insert- was accessed on: ' . date('Ymd'));
-        dump('ToDo insert' . $id);
+        Log::info('Page -PostController.insert- was accessed on: ' . date('Ymd'));
+
+        $this->validate($request, [
+            'title' => 'required',
+            'content' => 'required',
+            'artwork' => 'required|exists:artworks,id',
+        ]);
+
+        $post1 = new Post();
+        $post1->title = $request->get('title');
+        $post1->content = $request->get('content');
+        $post1->artwork_id = $request->get('artwork');
+        $post1->position = 'top-left';
+        $post1->publish = true;
+        $post1->save();
+
+        return redirect('posts')->with([
+            'alert' => 'You post has been added!',
+        ]);
     }
 
     public function updateShow($id)
@@ -55,7 +77,7 @@ class PostController extends Controller
         dump('ToDo updateShow' . $id);
     }
 
-    public function update($id)
+    public function update(Request $request, $id)
     {
         //ToDO Build form
         Log::info('Page stub -PostController.update- was accessed on: ' . date('Ymd'));
@@ -69,14 +91,14 @@ class PostController extends Controller
         dump('ToDo deleteShow' . $id);
     }
 
-    public function deleteConfirm($id)
+    public function deleteConfirm(Request $request, $id)
     {
         //ToDO Build form
         Log::info('Page stub -PostController.deleteConfirm- was accessed on: ' . date('Ymd'));
         dump('ToDo deleteConfirm' . $id);
     }
 
-    public function delete($id)
+    public function delete(Request $request, $id)
     {
         //ToDO Build form
         Log::info('Page stub -PostController.delete- was accessed on: ' . date('Ymd'));
