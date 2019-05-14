@@ -12,7 +12,7 @@
         <h5>About this Site</h5>
     </div>
     <div class='row justify-content-md-center'>
-        <p class='text-info text-center'>This site allows users to create multi-line posts and select an artwork to associate with each. All posts are shown to all users. You can view a list of available artwork images on the <a href='/art'>Artwork</a> page</p>
+        <p class='text-info text-center'>This site allows users to create multi-line posts and select an artwork to associate with each. All posts are shown to all users. Some pre-generated Artwork Tags and Posts reaction Emotions are displayed, but cannot be changed. You can view a list of available artwork images on the <a href='/art'>Artwork</a> page</p>
     </div>
     @if(Auth::check())
         <div class='row justify-content-md-center'>
