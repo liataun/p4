@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\Rule;
 use App\Post;
 use App\Artwork;
 
@@ -15,8 +15,6 @@ class PostController extends Controller
     {
         Log::info('Page -PostController.index- was accessed on: ' . date('Ymd'));
 
-        //$request->session()->forget('alert');
-
         return view('welcome');
     }
 
@@ -25,15 +23,8 @@ class PostController extends Controller
         Log::info('Page -PostController.list- was accessed on: ' . date('Ymd'));
         $posts = Post::where('publish', '=', true)->get();
 
-        $collection = collect([]);
-        foreach ($posts as $post) {
-            $collection->put($post->id, explode('\n', $post['content']));
-        }
-
         return view('posts.list')->with([
             'posts' => $posts,
-            'text' => $collection,
-            //'alert' => $request->session()->get('alert'),
         ]);
     }
 
@@ -98,6 +89,8 @@ class PostController extends Controller
         $post1->title = $request->get('title');
         $post1->content = $request->get('content');
         $post1->artwork_id = $request->get('artwork');
+        //keep these two lines in case I have time to add these features
+        //curreently will default per table definition
         //$post1->position = 'top-left';
         //$post1->publish = true;
         $post1->save();

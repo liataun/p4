@@ -43,6 +43,8 @@ class DebugController extends Controller
             $debug['Database connection test'] = 'FAILED: ' . $e->getMessage();
         }
 
-        return view('debug')->with(['debug' => $debug]);
+        $postEmotionUser = User::select('id')->where('email', '=', 'jill@harvard.edu')->first()->id;
+
+        return view('debug')->with(['debug' => $debug, 'emote_user' => $postEmotionUser]);
     }
 }

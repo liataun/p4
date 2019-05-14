@@ -6,6 +6,7 @@
 
 @section('content')
     @php
-        dump($debug ?? 'Variable not set!');
+        dump($debug ?? 'Variable debug not set!');
+        dump($emote_user ?? 'Variable emote_user not set!');
     @endphp
 @endsection

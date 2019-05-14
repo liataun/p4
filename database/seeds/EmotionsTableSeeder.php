@@ -14,22 +14,22 @@ class EmotionsTableSeeder extends Seeder
     {
         $emotion1 = new Emotion();
         $emotion1->name = 'joyful';
-        $emotion1->user_id = User::where('email', '=', 'jill@harvard.edu')->pluck('id')->first();
+        $emotion1->user_id = User::select('id')->where('email', '=', 'jill@harvard.edu')->first()->id;
         $emotion1->save();
 
         $emotion2 = new Emotion();
         $emotion2->name = 'angry';
-        $emotion1->user_id = User::where('email', '=', 'jill@harvard.edu')->pluck('id')->first();
+        $emotion2->user_id = User::select('id')->where('email', '=', 'jill@harvard.edu')->first()->id;
         $emotion2->save();
 
         $emotion3 = new Emotion();
         $emotion3->name = 'sad';
-        $emotion1->user_id = User::where('email', '=', 'jill@harvard.edu')->pluck('id')->first();
+        $emotion3->user_id = User::select('id')->where('email', '=', 'jamal@harvard.edu')->first()->id;
         $emotion3->save();
 
         $emotion4 = new Emotion();
         $emotion4->name = 'supportive';
-        $emotion1->user_id = User::where('email', '=', 'jamal@harvard.edu')->pluck('id')->first();
+        $emotion4->user_id = User::select('id')->where('email', '=', 'jamal@harvard.edu')->first()->id;
         $emotion4->save();
     }
 }

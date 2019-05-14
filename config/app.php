@@ -7,8 +7,9 @@ return [
     'nav' => [
         //URL => label
         'posts' => 'Posts',
-        'debug' => 'DB Test',
-        'nihao' => 'Ni Hao',
+        'art' => 'Artwork',
+        'debug' => 'DB Test', //display only for dev env
+        'nihao' => 'Ni Hao', //Stand in for Language swap element
         'users/user' => 'User',
     ],
 

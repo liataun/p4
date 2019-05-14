@@ -49,4 +49,13 @@ My application has 5 tables in total (`users`, `posts`, `artworks`, `tags`, `emo
 * Struggled a lot with the table relationship design and had to switch to working on paper for a bit to help break it into pieces.
 * I made my own images. (In illustrator, exported to png.)
 * Newline characters drove me to some extreme choices with seeding and parsing posts' content field. I will try to clean up as much of it as I can, but I've lost track of all the things I have changed to try to consistently parse captured newlines.
-* I find that sometimes the alert variable is being interpreted as _set_ per the master view section, but no content is showing except a small strip of background color. Tried to troubleshoot.
+* I find that sometimes the alert variable is being interpreted as _set_ per the master view section, but no content is showing except a small strip of background color. Tried to troubleshoot. No longer happening, but hard to know if it will show up again.
+* I am leaving in a few lines commented out to help me remember key things that I had to work through via trial and error or that I often uncomment in local deployment.
+
+##FROM Canvas Assignment
+P4 Wrap-up
+This week you'll complete Project 4. Here are some tips as you reach the home stretch:
+
+After deploying your final commits to production, test all your features on production before submitting. Occasionally there may be environment/config differences that could allow something to work fine locally, but fail on production. 
+Review Week 9's assignment - the tips I shared for P3 user testing also apply to P4.
+Run a fresh migration and seeds on production before submitting your project. You want to present your work in its ideal prototypical state for grading.

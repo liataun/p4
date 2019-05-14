@@ -28,6 +28,8 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/posts/{id?}', 'PostController@list');
 
+    Route::get('/art/{id?}', 'ArtworkController@list');
+
     Route::get('/debug', 'DebugController@debug');
 });
 

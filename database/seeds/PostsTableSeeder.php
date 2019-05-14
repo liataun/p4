@@ -12,6 +12,8 @@ class PostsTableSeeder extends Seeder
      */
     public function run()
     {
+        //use double quote for strings where we are adding newlines, use '\n' for newline itself
+
         $post1 = new Post();
         $post1->title = 'First post!';
         $post1->content = 'Welcome to the site! I am happy to have you reading and viewing my work.';
