@@ -8,6 +8,7 @@
 * Users can select the image from those in the database to associate with each post
 * Image with each post includes a link to the image created based on a database field for the available images
 * Users can view a list of available "Artwork" images (not available when selecting in the insert or update Post forms)
+* Seeded posts and images have randomized User Emotion reactions and Tags, which can be seen in the Posts and Artwork pages
 * Each user has their own account page where they can logout
 * The home page features
   * a reminder of the date
