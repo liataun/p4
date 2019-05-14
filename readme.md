@@ -15,11 +15,12 @@
   
 ## Database summary
 My application has 5 tables in total (`users`, `posts`, `artworks`, `tags`, `emotions`), plus required pivot tables.
-* There's a one-to-many relationship between `artworks` and `posts`
+* There's a one-to-many relationship between `artwork` and `posts`
 * There's a many-to-many relationship between `artworks` and `tags`
 * There's a many-to-many relationship between `emotions` and `posts`
-* There's a one-to-many relationship between `users` and `emotions`
-  * Only the `artworks` and `posts` relationship is currently visible to the user
+* There's a one-to-many relationship between `user` and `emotions`
+  * Only the `artworks` and `posts` relationship have dedicated pages
+  * Only the `posts` can be edited, including associated `artwork`
 
 ## Outside resources
 * _Appologies for always having so many links._ I always forget syntax.
@@ -42,14 +43,14 @@ My application has 5 tables in total (`users`, `posts`, `artworks`, `tags`, `emo
 * [Stack Overflow - User info on home page](https://stackoverflow.com/questions/28650067/laravel-5-display-username-on-homepage)
 
 ## Code style divergences
-* Some variation in alignment of elements from page to page. I was preparing for doing some positional selection based on user input, but spent the time troubleshooting string manipulation/display issues.
+* Some variation in alignment of elements from page to page. I was preparing for doing some positional selection based on user input, but spent the time troubleshooting string manipulation/display issues. Goal would have been to have text and images position based on a settings for user and each post.
 
 ## Notes for instructor
 * Using your Nav item listing-from-config-array logic.
-* Struggled a lot with the table relationship design and had to switch to working on paper for a bit to help break it into pieces.
+* Struggled a lot with the table relationship design and had to switch to working on paper for a bit to help break it into pieces. Result has a few relationships that do not do much, but demonstrate potential future iterations.
 * I made my own images. (In illustrator, exported to png.)
-* Newline characters drove me to some extreme choices with seeding and parsing posts' content field. I will try to clean up as much of it as I can, but I've lost track of all the things I have changed to try to consistently parse captured newlines.
-* I find that sometimes the alert variable is being interpreted as _set_ per the master view section, but no content is showing except a small strip of background color. Tried to troubleshoot. No longer happening, but hard to know if it will show up again.
+* Newline characters drove me to some extreme choices with seeding and parsing posts' content field. I tried to clean up as much of it as I can, but I've lost track of all the things I changed to consistently parse captured newlines.
+* I find that sometimes the alert variable is being interpreted as _set_, per the master view section, but no content is showing except a small strip of background color. Tried to troubleshoot. No longer happening, but hard to know if it will show up again.
 * I am leaving in a few lines commented out to help me remember key things that I had to work through via trial and error or that I often uncomment in local deployment.
 
 ##FROM Canvas Assignment

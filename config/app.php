@@ -9,7 +9,7 @@ return [
         'posts' => 'Posts',
         'art' => 'Artwork',
         'debug' => 'DB Test', //display only for dev env
-        'nihao' => 'Ni Hao', //Stand in for Language swap element
+        //'nihao' => 'Ni Hao', //Stand in for Language swap element
         'users/user' => 'User',
     ],
 
