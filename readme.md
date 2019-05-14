@@ -7,6 +7,7 @@
 * Users can view/insert/update/delete posts, all posts are visible to all other logged in users
 * Users can select the image from those in the database to associate with each post
 * Image with each post includes a link to the image created based on a database field for the available images
+* Users can view a list of available "Artwork" images (not available when selecting in the insert or update Post forms)
 * Each user has their own account page where they can logout
 * The home page features
   * a reminder of the date
@@ -52,11 +53,4 @@ My application has 5 tables in total (`users`, `posts`, `artworks`, `tags`, `emo
 * Newline characters drove me to some extreme choices with seeding and parsing posts' content field. I tried to clean up as much of it as I can, but I've lost track of all the things I changed to consistently parse captured newlines.
 * I find that sometimes the alert variable is being interpreted as _set_, per the master view section, but no content is showing except a small strip of background color. Tried to troubleshoot. No longer happening, but hard to know if it will show up again.
 * I am leaving in a few lines commented out to help me remember key things that I had to work through via trial and error or that I often uncomment in local deployment.
-
-##FROM Canvas Assignment
-P4 Wrap-up
-This week you'll complete Project 4. Here are some tips as you reach the home stretch:
-
-After deploying your final commits to production, test all your features on production before submitting. Occasionally there may be environment/config differences that could allow something to work fine locally, but fail on production. 
-Review Week 9's assignment - the tips I shared for P3 user testing also apply to P4.
-Run a fresh migration and seeds on production before submitting your project. You want to present your work in its ideal prototypical state for grading.
+* User who tested noted the following, "revealing what emails are assigned to users could be considered a security issue", based on the Laravel message that provided email was not found. I could not find how to customize that behavior.
