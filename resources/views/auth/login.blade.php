@@ -13,13 +13,17 @@
 
         {{ csrf_field() }}
 
-        <label for='email'>E-Mail Address</label>
-        <input id='email' type='email' name='email' value='{{ old('email') }}' required autofocus>
-        @include('includes.error-field', ['fieldName' => 'email'])
+        <div class='form-group'>
+            <label for='email'>E-Mail Address</label>
+            <input id='email' type='email' name='email' value='{{ old('email') }}' required autofocus>
+            @include('includes.error-field', ['fieldName' => 'email'])
+        </div>
 
-        <label for='password'>Password</label>
-        <input id='password' type='password' name='password' required>
-        @include('includes.error-field', ['fieldName' => 'password'])
+        <div class='form-group'>
+            <label for='password'>Password</label>
+            <input id='password' type='password' name='password' required>
+            @include('includes.error-field', ['fieldName' => 'password'])
+        </div>
 
         <label>
             <input type='checkbox' name='remember' {{ old('remember') ? 'checked' : '' }}> Remember Me

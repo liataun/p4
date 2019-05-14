@@ -18,11 +18,19 @@
                         <h4 class='text-muted'>{{ $post->title }}</h4>
                         {{--                    <pre>{{ $post->id }}</pre>--}}
                         {{--                    <p>{{gettype( e($post->content) )}}</p>--}}
-                        <a href='{{ $post->artwork->path }}'>{{ $post->artwork->label }}</a>
+                        <a href='{{ $post->artwork->path }}'>
+                            <img src='{{ $post->artwork->path }}'
+                                 class='img p-1'
+                                 id='{{ $post->artwork->label }}_{{ $post->artwork->id }}'
+                                 alt='{{ $post->artwork->alt_text }}'
+                                 title='{{ $post->artwork->label }}'>
+                        </a>
+
                         <p class='text-info'>{!! nl2br(e($post->content)) !!}</p>
                         <ul class='list-group'>
                             @foreach($post->emotions as $emotion)
-                                <li class='list-group-item list-group-item-secondary'>User <span class='text-secondary'>{{ $emotion->user->name }}</span> responded with
+                                <li class='list-group-item list-group-item-secondary'>User
+                                    <span class='text-secondary'>{{ $emotion->user->name }}</span> responded with
                                     <em class='text-success'>{{ $emotion->name }}</em></li>
                             @endforeach
                         </ul>
