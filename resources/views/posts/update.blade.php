@@ -30,7 +30,7 @@
 
         <div class='form-group'>
             <label for='artwork'>* Select Artwork Image to go with your post (preview not available)</label>
-            <select class='form-control' name='artwork' name='artwork'>
+            <select class='form-control' id='artwork' name='artwork'>
                 <option value=''>Choose one...</option>
                 @foreach($art as $artwork)
                     <option value='{{ $artwork->id }}'
